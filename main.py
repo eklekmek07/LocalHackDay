@@ -1,16 +1,15 @@
 import random, time
 
-def type(words):
+def text(words):
     for i in words:
         print(i,end='',flush=True)
         time.sleep(0.02)
-        print()
-
-class player():
+    print()
+class main():
     def __init__(self):
         print("What is your name ?")
         self.name = input()
-        type("What is your job ?\n1-Timber\n2-Drunk\n3-Merchant")
+        text("What is your job ?\n1-Timber\n2-Drunk\n3-Merchant")
         while True:
             try:
                 move = input()
@@ -31,15 +30,28 @@ class player():
                 self.strength = 1
                 self.intelligent = 3
                 self.money = True
-    
+            break
+player = main()  
+
 def questZero():
-    type("köpek saldırır")
+    text("köpek saldırır")
+    text("1-Attack the Wolf\n2-Sneak around\n3-Calm the wolf")
+    chance = random.randint(1,101)
     while True:
         try:
             move = input()        
             if move == 1:
+                if player.strength*25 > chance:
+                    text("You win")
+                    questOne()
+                else:
+                    type()
+                
+                
+        except:
+            pass
 
-def QuestOne():
+def questOne():
     #check name item
     type("Hikaye başlar.. bla bla dağların arasında uyandın..\n")
     type("Yaşlı Amca:\nMerhaba genç köyümüze hoş geldin falan filan..")
@@ -57,9 +69,11 @@ def QuestOne():
             print("Lütfen doğru bir karar giriniz")
         break
 
-def QuestTwo():
-    type("
+def questTwo():
+    pass
+
+questZero()
+print("selm")
 
 
-firstStory()
         
