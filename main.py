@@ -31,6 +31,7 @@ class main():
                 self.intelligent = 3
                 self.money = True
             break
+            self.hp = 20 + 5 * strength
 player = main()  
 
 def questZero():
