@@ -8,11 +8,11 @@ def text(words):
 class main():
     def __init__(self):
         print("What is your name ?")
-        self.name = input()
+        self.name = "test subject"
         text("What is your job ?\n1-Timber\n2-Drunk\n3-Merchant")
         while True:
             try:
-                move = input()
+                move = int(input())
             except:
                 print("Wrong input!")
             if move == 1:
@@ -39,15 +39,21 @@ def questZero():
     chance = random.randint(1,101)
     while True:
         try:
-            move = input()        
+            move = int(input())        
             if move == 1:
-                if player.strength*25 > chance:
+                print("okey")
+                if player.strength * 25 > chance:
                     text("You win")
                     questOne()
                 else:
-                    type()
-                
-                
+                    text("öldün")
+            if move == 2:
+                print("aldı")
+                if player.stealth * 25 > chance:
+                    text("sneak")
+                    questOne()
+                else:
+                    text("öldün")
         except:
             pass
 
@@ -72,8 +78,15 @@ def questOne():
 def questTwo():
     pass
 
-questZero()
+#questZero()
 print("selm")
-
+def hesap():
+    chance = random.randint(0,100)
+    count = 0
+    for i in range(100):
+        if player.strength * 25 > chance:
+            count += 1
+    print(count)
+hesap()
 
         
