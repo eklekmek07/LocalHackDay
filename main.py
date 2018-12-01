@@ -15,30 +15,28 @@ def input_handler():
 
 class main():
     def __init__(self):
-        print("What is your name ?")
+        #print("What is your name ?")
         self.name = "test subject"
         text("What is your job ?\n1-Timber\n2-Drunk\n3-Merchant")
-        while True:
-            try:
-                move = int(input())
-            except:
-                print("Wrong input!")
-            if move == 1:
-                self.stealth = 1
-                self.strength = 3
-                self.intelligent = 2
-                self.axe = True
-            if move == 2:
-                self.stealth = 3
-                self.strength = 1
-                self.intelligent = 2
-                self.bottle = True
-            if move == 3:
-                self.stealth = 2
-                self.strength = 1
-                self.intelligent = 3
-                self.money = True
-            break
+        move = input_handler()
+        if move == 1:
+            self.stealth = 1
+            self.strength = 3
+            self.intelligent = 2
+            self.axe = True
+            self.timber = True
+        if move == 2:
+            self.stealth = 3
+            self.strength = 1
+            self.intelligent = 2
+            self.bottle = True
+            self.drunk = True
+        if move == 3:
+            self.stealth = 2
+            self.strength = 1
+            self.intelligent = 3
+            self.money = True
+            self.merchant = True
 
 player = main()  
 
@@ -56,9 +54,11 @@ def questZero():
     if move == 2:
         if player.stealth * 25 > chance:
             text("sneak")
-            questOne()
+        elif player.strength * 25 > chance:
+            text("He noticed and attacked you but you fought better.He is dead.")
+            questTwo()
         else:
-            text("öldün")
+            text("YOU DIED")
     if move == 3:
         if player.intelligent * 25 > chance:
             text("calm")
@@ -68,7 +68,14 @@ def questZero():
         else:
             text("köpek saldırır")
 
-def questOne():
+def questOne()
+    text("You see a ruined bridge")
+    text("1-Try to fix it\n2-Try to swim\n3-Try to pass anyway")
+    chance = random.radnint(1,101)
+    move = input_handler()
+    if move == 1:
+        if player.strength 
+def questTwo():
     text("You see an Orc")
     text("1-Attack the Orc!\n2-Sneak around\n3-Talk with him")
     chance = random.randint(1, 101)
@@ -106,10 +113,7 @@ def questThree():
     #minator event
     text("On the road you saw a Minatour")
     text("1-Attack him\n2-Sneak Around\n3-Distract him")
-    try:
-        choose = int(input())
-    except:
-        print("Wrong input")
+    move = input_handler()
 
 
 questZero()
