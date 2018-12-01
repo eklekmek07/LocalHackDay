@@ -5,6 +5,14 @@ def text(words):
         print(i,end='',flush=True)
         time.sleep(0.02)
     print()
+
+def input_handler():
+    try:
+        a = int(input())
+        return a
+    except:
+        print("Wrong Input!")
+
 class main():
     def __init__(self):
         print("What is your name ?")
@@ -38,38 +46,71 @@ def questZero():
     text("köpek saldırır")
     text("1-Attack the Wolf\n2-Sneak around\n3-Calm the wolf")
     chance = random.randint(1,101)
-    while True:
-        try:
-            move = int(input())        
-            if move == 1:
-                if player.strength * 25 > chance:
-                    text("You win")
-                    questOne()
-                else:
-                    text("öldün")
-            if move == 2:
-                if player.stealth * 25 > chance:
-                    text("sneak")
-                    questOne()
-                else:
-                    text("öldün")
-            if move == 3:
-                if player.intelligent * 25 > chance:
-                    text("calm")
-                    text("Dog bring you a stick")
-                    player.stick = True
-                    questOne()
-                else:
-                    text("köpek saldırır")
-
-        except:
-            pass
+    move = input_handler()       
+    if move == 1:
+        if player.strength * 25 > chance:
+            text("You win")
+            questOne()
+        else:
+            text("öldün")
+    if move == 2:
+        if player.stealth * 25 > chance:
+            text("sneak")
+            questOne()
+        else:
+            text("öldün")
+    if move == 3:
+        if player.intelligent * 25 > chance:
+            text("calm")
+            text("Dog bring you a stick")
+            player.stick = True
+            questOne()
+        else:
+            text("köpek saldırır")
 
 def questOne():
-    pass
-
+    text("You see an Orc")
+    text("1-Attack the Orc!\n2-Sneak around\n3-Talk with him")
+    chance = random.randint(1, 101)
+    move = input_handler()
+    if move == 1:
+        if player.strength * 20 > chance:
+            text("You have won the battle!")
+            questTwo()
+        else:
+            text("YOU DIED")
+    if move == 2:
+        if player.stealth * 40 > chance:
+            text("You have successfully sneaked around him")
+            questTwo()
+        elif player.strength * 20 > chance:
+            text("He noticed and attacked you but you fought better.It is dead.")
+            questTwo()
+        else:
+            text("YOU DIED")
+        if move == 3:
+            if player.intelligent * 40 > chance:
+                text("You have gained his trust")
+                player.stick = True
+                questTwo()
+            elif player.strength * 20 > chance:
+                text("He got angry and attacked you but you fought better.It is dead.")
+                questTwo()
+            else:
+                text("YOU DIED")
 def questTwo():
     pass
+
+def questThree():
+    text("You saw mountains in the distance and decide to go there")
+    #minator event
+    text("On the road you saw a Minatour")
+    text("1-Attack him\n2-Sneak Around\n3-Distract him")
+    try:
+        choose = int(input())
+    except:
+        print("Wrong input")
+
 
 questZero()
 
