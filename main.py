@@ -17,8 +17,14 @@ class main():
     def __init__(self):
         #print("What is your name ?")
         self.name = "test subject"
-        text("What is your job ?\n1-Timber\n2-Drunk\n3-Merchant")
+        text("You are a...\n1-Timber\n2-Drunk\n3-Merchant")
         move = input_handler()
+        self.money = False
+        self.axe = False
+        self.bottle = False
+        self.timber = False
+        self.merchant = False
+        self.drunk = False
         if move == 1:
             self.stealth = 1
             self.strength = 3
@@ -40,42 +46,65 @@ class main():
 
 player = main()  
 
-def questZero():
-    text("köpek saldırır")
-    text("1-Attack the Wolf\n2-Sneak around\n3-Calm the wolf")
+def questZero():#wolf
+    text("You see an angry wolf.")
+    text("1-Attack the Wolf!\n2-Sneak around\n3-Calm the wolf")
     chance = random.randint(1,101)
     move = input_handler()       
     if move == 1:
-        if player.strength * 25 > chance:
-            text("You win")
+        if player.strength * 25 > chance or player.timber == True:
+            text("You have killed the wolf and continued on your path.")
             questOne()
         else:
-            text("öldün")
+            text("YOU DIED")
     if move == 2:
-        if player.stealth * 25 > chance:
-            text("sneak")
+        if player.stealth * 25 > chance or player.drunk == True:
+            text("You have successfully sneaked around it and continued on your path.")
         elif player.strength * 25 > chance:
-            text("He noticed and attacked you but you fought better.He is dead.")
+            text("He noticed and attacked you but you fought better.He is dead.You continued on your path.")
             questTwo()
         else:
             text("YOU DIED")
     if move == 3:
         if player.intelligent * 25 > chance:
-            text("calm")
+            text("The dog calmly waged its tail.It likes you.")
             text("Dog bring you a stick")
+            text("You put it in your bag and continued on your path.")
             player.stick = True
             questOne()
+        elif player.strength * 20 > chance:
+                text("He got angry and attacked you but you fought better.It is dead.")
+                questThree()
         else:
-            text("köpek saldırır")
+                text("YOU DIED")
 
-def questOne()
-    text("You see a ruined bridge")
-    text("1-Try to fix it\n2-Try to swim\n3-Try to pass anyway")
-    chance = random.radnint(1,101)
+def questOne():#bridge
+    text("You see a guarded bridge,they ask for money")
+    if player.money == True:
+        text("Do you want to pay money ?")
+        move = input("t or f:\n")
+        if move == "t":
+            text("You passed")
+            questTwo()
+    if player.timber == True:
+        text("Luckily, you know how to build a bridge.")        
+        move = input("t or f:\n")
+        if move == "t":
+            text("You made a bridge")
+            questTwo()
+    text("1-Fight them\n2-Swim\n3-Sneak pass them")
+    chance = random.randint(1,101)
     move = input_handler()
     if move == 1:
-        if player.strength 
-def questTwo():
+        if player.strength * 20 > chance or player.timber == True:
+            text("fix bridge")
+        else:
+            text("fall to the water")
+            player.wet = True
+    if move == 2:
+        pass
+        
+def questTwo():#orc
     text("You see an Orc")
     text("1-Attack the Orc!\n2-Sneak around\n3-Talk with him")
     chance = random.randint(1, 101)
@@ -83,38 +112,42 @@ def questTwo():
     if move == 1:
         if player.strength * 20 > chance:
             text("You have won the battle!")
-            questTwo()
+            questThree()
         else:
             text("YOU DIED")
     if move == 2:
         if player.stealth * 40 > chance:
             text("You have successfully sneaked around him")
-            questTwo()
+            questThree()
         elif player.strength * 20 > chance:
             text("He noticed and attacked you but you fought better.It is dead.")
-            questTwo()
+            questThree()
         else:
             text("YOU DIED")
         if move == 3:
             if player.intelligent * 40 > chance:
                 text("You have gained his trust")
                 player.stick = True
-                questTwo()
+                questThree()
             elif player.strength * 20 > chance:
                 text("He got angry and attacked you but you fought better.It is dead.")
-                questTwo()
+                questThree()
             else:
                 text("YOU DIED")
-def questTwo():
-    pass
 
-def questThree():
+def questThree(): #minator
     text("You saw mountains in the distance and decide to go there")
     #minator event
     text("On the road you saw a Minatour")
     text("1-Attack him\n2-Sneak Around\n3-Distract him")
     move = input_handler()
 
+def questFour():#vampir
+    text
+def sideGoats():
+    pass
+
+def 
 
 questZero()
 
