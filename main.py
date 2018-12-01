@@ -41,52 +41,32 @@ def questZero():
         try:
             move = int(input())        
             if move == 1:
-                print("okey")
                 if player.strength * 25 > chance:
                     text("You win")
                     questOne()
                 else:
                     text("öldün")
             if move == 2:
-                print("aldı")
                 if player.stealth * 25 > chance:
                     text("sneak")
                     questOne()
                 else:
                     text("öldün")
+            if move == 3:
+                if player.intelligent * 25 > chance:
+                    text("")
+
         except:
             pass
 
 def questOne():
-    #check name item
-    type("Hikaye başlar.. bla bla dağların arasında uyandın..\n")
-    type("Yaşlı Amca:\nMerhaba genç köyümüze hoş geldin falan filan..")
-    print("Adınız:")
-    player.name = input()
-    while True:
-        try:
-            type("1-Köye git\n2-Ormana git\n3-Dinlen")
-            choose = input()
-            if choose == 1:
-                pass
-            elif choose == 2:
-                print("Köye gittin")
-        except:
-            print("Lütfen doğru bir karar giriniz")
-        break
+    pass
 
 def questTwo():
     pass
 
-#questZero()
-print("selm")
-def hesap():
-    chance = random.randint(0,100)
-    count = 0
-    for i in range(100):
-        if player.strength * 25 > chance:
-            count += 1
-    print(count)
-hesap()
+questZero()
+
+
 
         
