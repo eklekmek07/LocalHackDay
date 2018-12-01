@@ -31,7 +31,7 @@ class main():
                 self.intelligent = 3
                 self.money = True
             break
-            self.hp = 20 + 5 * strength
+
 player = main()  
 
 def questZero():
@@ -55,7 +55,12 @@ def questZero():
                     text("öldün")
             if move == 3:
                 if player.intelligent * 25 > chance:
-                    text("")
+                    text("calm")
+                    text("Dog bring you a stick")
+                    player.stick = True
+                    questOne()
+                else:
+                    text("köpek saldırır")
 
         except:
             pass
