@@ -1,0 +1,2 @@
+def storyZero():
+    text("You woke up in the dark forest. Gradually, you remembered what happened.\nThe evil vampire had drunk your mothers blood and had caused her death.\nNow, you have an enormous grudge to the evil vampire.\nYou have to find the vampire and have to defeat her to death.")
